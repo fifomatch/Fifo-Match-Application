@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.fifo.match.ui.activity.setting.SettingActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_header_gradient"
+        android:fitsSystemWindows="true">
+
+        <RelativeLayout
+            android:id="@+id/rlToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            android:background="@drawable/shape_header_gradient"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:onClick="@{() -> activity.onBackPressed()}"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_back"
+                android:tint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/sf_pro_text_semibold"
+                android:text="@string/settings"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp" />
+
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlToolbar">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_rext_medium"
+                android:text="@string/online_status"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/scOnline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:thumb="@drawable/thumb_selector"
+                app:layout_constraintBottom_toBottomOf="@id/tv1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv1"
+                app:track="@drawable/track_selector_for_profile" />
+
+            <View
+                android:id="@+id/v1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/light_gray"
+                app:layout_constraintTop_toBottomOf="@id/tv1" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_rext_medium"
+                android:text="@string/notifications"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v1" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/scNoti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:thumb="@drawable/thumb_selector"
+                app:layout_constraintBottom_toBottomOf="@id/tv2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv2"
+                app:track="@drawable/track_selector_for_profile" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/light_white"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv2">
+
+                <RelativeLayout
+                    android:id="@+id/rlAboutas"
+                    android:onClick="@{() -> activity.onNext(1)}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:background="@drawable/shape_unselect">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/about_us"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlCountas"
+                    android:onClick="@{() -> activity.onNext(2)}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/contact_us"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlHelp"
+                    android:onClick="@{() -> activity.onNext(3)}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/help"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlpp"
+                    android:onClick="@{() -> activity.onNext(4)}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/privacy_policy"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlTc"
+                    android:onClick="@{() -> activity.onNext(5)}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/term_conditions"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <!--
+
+               <androidx.appcompat.widget.AppCompatTextView
+                   android:layout_width="match_parent"
+                   android:layout_height="@dimen/_35sdp"
+                   android:gravity="center_vertical"
+                   android:paddingStart="@dimen/_15sdp"
+                   android:fontFamily="@font/sf_pro_rext_medium"
+                   android:textColor="@color/orange"
+                   android:textSize="@dimen/_12ssp"
+                   android:layout_marginTop="@dimen/_15sdp"
+                   android:layout_marginHorizontal="@dimen/_25sdp"
+                   android:background="@drawable/shape_unselect"
+                   android:text="@string/delete_account" />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

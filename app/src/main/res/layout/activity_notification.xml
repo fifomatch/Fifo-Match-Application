@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.fifo.match.ui.activity.notification.NotificationViewModel" />
+
+        <variable
+            name="activity"
+            type="com.fifo.match.ui.activity.notification.NotificationActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_header_gradient"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rlToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            android:background="@drawable/shape_header_gradient"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:onClick="@{() -> activity.onBackPressed()}"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_back"
+                android:tint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/sf_pro_text_semibold"
+                android:text="@string/notifications"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlNotifi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rlToolbar"
+            android:background="@color/light_white">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/sf_pro_rext_medium"
+                android:text="@string/notifications"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/clear_all"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNotification"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tv1"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:reverseLayout="true"
+                app:stackFromEnd="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/tvNoFound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_white"
+            android:layout_below="@id/rlToolbar"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="No Notification"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

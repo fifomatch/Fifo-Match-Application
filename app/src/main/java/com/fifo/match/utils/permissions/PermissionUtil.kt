@@ -1,0 +1,40 @@
+package com.fifo.match.utils.permissions
+
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+
+object PermissionUtil {
+
+    private fun useRuntimePermissions(): Boolean {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+    }
+
+    private fun hasPermission(activity: AppCompatActivity, permission: String): Boolean {
+        return ContextCompat.checkSelfPermission(activity, permission) == PackageManager.PERMISSION_GRANTED
+    }
+
+    fun requestPermission(activity: AppCompatActivity, permissions: Array<String>, requestCode: Int) {
+        if (useRuntimePermissions()) {
+            activity.requestPermissions(permissions, requestCode)
+        }
+    }
+
+    fun shouldAskForPermission(activity: AppCompatActivity, permission: String): Boolean {
+        return useRuntimePermissions() && !hasPermission(activity, permission) && !hasAlreadyAskedPermission(activity, permission)
+    }
+
+    fun shouldAskForPermission(activity: AppCompatActivity, permissions: Array<String>): Boolean {
+        for (permission in permissions) {
+            if (useRuntimePermissions() && !hasPermission(activity, permission) && !hasAlreadyAskedPermission(activity, permission)) {
+                return true
+            }
+        }
+        return false
+    }
+
+    private fun hasAlreadyAskedPermission(activity: AppCompatActivity, permission: String): Boolean {
+        return false
+    }
+}

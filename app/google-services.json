@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1089452010420",
+    "firebase_url": "https://fifo-e951b-default-rtdb.firebaseio.com",
+    "project_id": "fifo-e951b",
+    "storage_bucket": "fifo-e951b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089452010420:android:66a8b03bc67af2f66320e1",
+        "android_client_info": {
+          "package_name": "com.fifo.match"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089452010420-63u929v571mgdjjs7v9d7avkt4248283.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fifo.match",
+            "certificate_hash": "b606ed09afc5d46d4e87b3069a73a9f2bba10d75"
+          }
+        },
+        {
+          "client_id": "1089452010420-2444meeeq31rgt9rg25ah634p5cqu42j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPZuPk3gN2tBYD_1NrIhQf5MB8n8jMh4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089452010420-2444meeeq31rgt9rg25ah634p5cqu42j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1089452010420-cksc1f2ip1jbo400ss72dem0m12s7ef4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fifomatch.fifo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

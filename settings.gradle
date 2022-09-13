@@ -1,0 +1,37 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+
+    resolutionStrategy {
+        eachPlugin {
+            if(requested.id.id == 'dagger.hilt.android.plugin') {
+                useModule("com.google.dagger:hilt-android-gradle-plugin:2.39.1")
+
+            }
+            else if(requested.id.id == 'com.google.gms.google-services') {
+                useModule("com.google.gms:google-services:4.3.10")
+            }
+            /*else if(requested.id.id == 'com.google.firebase:firebase-crashlytics-gradle') {
+                useModule("com.google.firebase:firebase-crashlytics-gradle:4.3.5'")
+            }*/
+        }
+    }
+
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+        maven { url 'https://jitpack.io' }
+
+    }
+}
+rootProject.name = "Fifo"
+include ':app'

@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="fragment"
+            type="com.fifo.match.ui.activity.home.fragment.profile.ProfileFragment" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_white"
+        android:id="@+id/frameLayout"
+        android:fitsSystemWindows="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            />
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_330sdp"
+            android:background="@color/light_white">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivimage"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_300sdp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:scaleY="1.1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/CornerCut" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivSelectImage"
+                        android:layout_width="@dimen/_25sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:src="@drawable/ic_pen"
+                        android:tint="@color/light_gray"
+                        android:onClick="@{() -> fragment.onNext(0)}"
+                        android:layout_margin="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:visibility="gone"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/_150sdp"
+                    android:gravity="bottom"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/_8sdp">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:fontFamily="@font/sf_pro_text_semibold"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivVerify"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:padding="@dimen/_2sdp"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:src="@drawable/tick_green"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="@id/tvName"
+                                app:layout_constraintStart_toEndOf="@id/tvName"
+                                app:layout_constraintTop_toTopOf="@id/tvName" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iv1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_location"
+                                app:layout_constraintStart_toStartOf="@id/tvName"
+                                app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvDistance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:fontFamily="@font/sf_pro_text_light"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/_11ssp"
+                                app:layout_constraintBottom_toBottomOf="@id/iv1"
+                                app:layout_constraintStart_toEndOf="@id/iv1"
+                                app:layout_constraintTop_toTopOf="@id/iv1" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvDob"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/sf_pro_text_light"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/_11ssp"
+                                app:layout_constraintStart_toStartOf="@id/tvDistance"
+                                app:layout_constraintTop_toBottomOf="@id/tvDistance" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivSelect"
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:src="@drawable/ic_pen"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="@id/tvName"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/tvName" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivPlanImage"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/ivSelect" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlPersonalInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:elevation="@dimen/_1sdp"
+                    android:onClick="@{() -> fragment.onNext(1)}">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv2"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/ic_profile" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toRightOf="@id/iv2"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/personal_information"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlVerifi"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:elevation="@dimen/_1sdp"
+                    android:onClick="@{() -> fragment.onNext(10)}">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv31"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:padding="@dimen/_1sdp"
+                        android:src="@drawable/ic_remove_acc" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toRightOf="@id/iv31"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/profile_verification"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlAppearance"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:elevation="@dimen/_1sdp"
+                    android:onClick="@{() -> fragment.onNext(2)}">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv3"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:padding="@dimen/_1sdp"
+                        android:src="@drawable/ic_eye" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toRightOf="@id/iv3"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/appearance"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlSurvey"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:elevation="@dimen/_1sdp"
+                    android:onClick="@{() -> fragment.onNext(3)}">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv4"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/ic_survery_icon" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toRightOf="@id/iv4"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/survey"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlMem"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:elevation="@dimen/_1sdp"
+                    android:onClick="@{() -> fragment.onNext(4)}">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv5"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:padding="@dimen/_1sdp"
+                        android:src="@drawable/ic_membership_iocn" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toRightOf="@id/iv5"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/membership"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlViewProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:elevation="@dimen/_1sdp"
+                    android:onClick="@{() -> fragment.onNext(5)}">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv6"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/ic_visit" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toEndOf="@id/iv6"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/visit_who_all_have_viewed_your_profile"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:elevation="@dimen/_1sdp"
+                    android:onClick="@{() -> fragment.onNext(6)}">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv7"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/ic_setting" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toRightOf="@id/iv7"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/settings"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlRemove"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:elevation="@dimen/_1sdp"
+                    android:onClick="@{() -> fragment.onNext(7)}">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv8"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/ic_remove_acc" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toRightOf="@id/iv8"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/remove_account"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlHidden"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:elevation="@dimen/_1sdp"
+                    android:onClick="@{() -> fragment.onNext(8)}">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv9"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/ic_hidden_profile" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toRightOf="@id/iv9"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/hidden_profiles"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:rotation="270"
+                        android:src="@drawable/ic_down"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/llLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/shape_logout_black"
+                    android:elevation="@dimen/_2sdp"
+                    android:onClick="@{() -> fragment.onNext(9)}"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_18sdp"
+                    android:paddingVertical="@dimen/_8sdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:src="@drawable/ic_logout" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:fontFamily="@font/sf_pro_rext_medium"
+                        android:text="@string/logout"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

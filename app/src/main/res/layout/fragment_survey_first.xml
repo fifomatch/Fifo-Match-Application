@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="fragment"
+            type="androidx.fragment.app.FragmentActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProgressValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/survey_15_completed"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/steps_1_7"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:progress="15"
+                android:progressDrawable="@drawable/shape_progress_survey"
+                app:layout_constraintTop_toBottomOf="@id/tvProgressValue" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:fontFamily="@font/sf_pro_text_regular"
+            android:text="@string/what_is_your_height"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/consTop"
+            />
+
+        <LinearLayout
+            android:layout_marginEnd="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/consTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:gravity="center"
+                android:text="@string/cm"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:thumb="@drawable/thumb_selector"
+                app:track="@drawable/track_selector_for_profile" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvInches"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:gravity="center"
+                android:text="@string/inches"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/_12ssp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtValueHieght"
+            android:layout_width="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            android:text="120 cm"
+            app:layout_constraintTop_toBottomOf="@id/tv1"
+          />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/mSeekBarHieght"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:thumbTint="@color/orange"
+            android:progress="45"
+            android:visibility="visible"
+            android:progressTint="@color/orange"
+            android:progressBackgroundTint="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/txtValueHieght"
+            />
+
+       <!-- <com.jaygoo.widget.RangeSeekBar
+            android:id="@+id/seekBarAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:rsb_gravity="center"
+            app:rsb_indicator_background_color="@color/white"
+            app:rsb_indicator_height="20dp"
+            app:rsb_indicator_margin="5dp"
+            app:rsb_indicator_text_color="@color/black"
+            app:rsb_indicator_width="50dp"
+            app:rsb_min_interval="1"
+            app:rsb_mode="single"
+            app:rsb_progress_color="@color/orange"
+            app:rsb_thumb_drawable="@drawable/seek_thumb"
+            app:rsb_thumb_height="@dimen/_12sdp"
+            app:rsb_thumb_width="@dimen/_12sdp"
+            app:rsb_tick_mark_layout_gravity="bottom"
+            app:rsb_tick_mark_mode="number"
+            app:rsb_tick_mark_text_margin="15dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:rsb_indicator_show_mode="showWhenTouch"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            app:layout_constraintTop_toBottomOf="@id/tv1"
+            />-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

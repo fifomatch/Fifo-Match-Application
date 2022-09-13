@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        
+        <variable
+            name="fragment"
+            type="com.fifo.match.ui.activity.survey.fragment.SurveyThreeFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProgressValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/survey_45_completed"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/steps_3_7"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:progress="45"
+                android:progressDrawable="@drawable/shape_progress_survey"
+                app:layout_constraintTop_toBottomOf="@id/tvProgressValue" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:fontFamily="@font/sf_pro_rext_medium"
+            android:text="@string/do_you_have_kids"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/consTop" />
+
+        <LinearLayout
+            android:id="@+id/llKids"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tv1">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:onClick="@{()-> fragment.onKidsSelects(1)}"
+                android:id="@+id/btnKidsYes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_unselect"
+                android:fontFamily="@font/sf_pro_text_light"
+                android:text="@string/yes"
+                android:textAllCaps="false"
+                android:textColor="@color/gray" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:onClick="@{()-> fragment.onKidsSelects(2)}"
+                android:id="@+id/btnKidsNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_unselect"
+                android:fontFamily="@font/sf_pro_text_light"
+                android:text="@string/no"
+                android:textAllCaps="false"
+                android:textColor="@color/gray" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:fontFamily="@font/sf_pro_rext_medium"
+            android:text="@string/do_you_want_kids_in_the_future"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llKids" />
+
+        <LinearLayout
+            android:id="@+id/llKidsFuture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tv2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnFutureYes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:onClick="@{()-> fragment.onFutureKids(1)}"
+                android:layout_weight="1"
+                android:background="@drawable/shape_unselect"
+                android:fontFamily="@font/sf_pro_text_light"
+                android:text="@string/yes"
+                android:textAllCaps="false"
+                android:textColor="@color/gray" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnFuturesNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:onClick="@{()-> fragment.onFutureKids(2)}"
+                android:background="@drawable/shape_unselect"
+                android:fontFamily="@font/sf_pro_text_light"
+                android:text="@string/no"
+                android:textAllCaps="false"
+                android:textColor="@color/gray" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFuturesYesNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:onClick="@{()-> fragment.onFutureKids(3)}"
+            android:background="@drawable/shape_unselect"
+            android:fontFamily="@font/sf_pro_text_light"
+            android:text="@string/yes_but_not_in_the_near_future"
+            android:textAllCaps="false"
+            android:textColor="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/llKidsFuture" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

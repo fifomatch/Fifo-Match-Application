@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.fifo.match.ui.activity.editProfile.EditProfileActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.fifo.match.ui.activity.editProfile.EditProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_header_gradient"
+        android:fitsSystemWindows="true">
+
+        <RelativeLayout
+            android:id="@+id/rlToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            android:background="@drawable/shape_header_gradient"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:onClick="@{() -> activity.onBackPressed()}"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_back"
+                android:tint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/sf_pro_text_semibold"
+                android:text="@string/personal_information"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivEditSurvey"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_pen"
+                android:tint="@color/white"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlToolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:civ_border_color="@color/gray"
+                    app:civ_border_width="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivEditPic"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginStart="@dimen/_65sdp"
+                    android:enabled="@{viewModel.stEditProfile ? true : false}"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_pen"
+                    android:tint="@color/orange"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/profileImage"
+                    app:layout_constraintStart_toStartOf="@id/profileImage"
+                    app:layout_constraintTop_toTopOf="@id/profileImage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_rext_medium"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profileImage" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:enabled="@{viewModel.stEditProfile ? true : false}"
+                    android:hint="Name"
+                    android:inputType="text"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:text="@={viewModel.stName}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintTop_toBottomOf="@id/tv1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv22"
+                    android:visibility="visible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_rext_medium"
+                    android:text="Email id"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etFirstName" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:visibility="visible"
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/shape_fix"
+                    android:enabled="false"
+                    android:hint="Email"
+                    android:inputType="text"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintTop_toBottomOf="@id/tv22" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_rext_medium"
+                    android:text="Mobile Number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etMobileNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/shape_fix"
+                    android:enabled="false"
+                    android:hint="mobile"
+                    android:inputType="text"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintTop_toBottomOf="@id/tv2" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_rext_medium"
+                    android:text="Gender"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etMobileNumber" />
+
+                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                    android:id="@+id/ssGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:enabled="@{viewModel.stEditProfile ? true : false}"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintTop_toBottomOf="@id/tv3"
+                    app:smsp_enableFloatingLabel="false"
+                    app:smsp_hint="@string/i_am_a"
+                    app:smsp_hintColor="@color/gray"
+                    app:smsp_hintSize="@dimen/_12ssp"
+                    app:smsp_itemColor="@color/black"
+                    app:smsp_itemListColor="@color/black"
+                    app:smsp_paddingLeftRight="@dimen/_8sdp"
+                    app:smsp_selectedItemListColor="@color/orange"
+                    app:smsp_underlineColor="@color/white"
+                    android:capitalize="characters"
+                    app:smsp_underlineSize="0dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_rext_medium"
+                    android:text="@string/interested_in"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ssGender" />
+
+                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                    android:id="@+id/ssInterset"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:enabled="@{viewModel.stEditProfile ? true : false}"
+                    android:paddingTop="@dimen/_5sdp"
+                    app:layout_constraintTop_toBottomOf="@id/tv4"
+                    app:smsp_enableFloatingLabel="false"
+                    app:smsp_hint="@string/interested_in"
+                    app:smsp_hintColor="@color/gray"
+                    app:smsp_hintSize="@dimen/_12ssp"
+                    app:smsp_itemColor="@color/black"
+                    app:smsp_itemListColor="@color/black"
+                    app:smsp_paddingLeftRight="@dimen/_8sdp"
+                    app:smsp_selectedItemListColor="@color/orange"
+                    app:smsp_underlineColor="@color/white"
+                    app:smsp_underlineSize="0dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_rext_medium"
+                    android:text="@string/date_of_birth"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ssInterset" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etDOB"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+                    android:editable="false"
+                    android:enabled="@{viewModel.stEditProfile ? true : false}"
+                    android:focusable="false"
+                    android:text="@={viewModel.stDOB}"
+                    android:hint="Date of birth"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/tv5" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_rext_medium"
+                    android:text="@string/relationship_status"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etDOB" />
+
+                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                    android:id="@+id/etStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:enabled="@{viewModel.stEditProfile ? true : false}"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintTop_toBottomOf="@id/tv6"
+                    app:smsp_enableFloatingLabel="false"
+                    app:smsp_hint="@string/select_relationship_status"
+                    app:smsp_hintColor="@color/gray"
+                    app:smsp_hintSize="@dimen/_11ssp"
+                    app:smsp_itemColor="@color/black"
+                    app:smsp_itemListColor="@color/black"
+                    app:smsp_paddingLeftRight="@dimen/_8sdp"
+                    app:smsp_selectedItemListColor="@color/orange"
+                    app:smsp_underlineColor="@color/white"
+                    app:smsp_underlineSize="0dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_rext_medium"
+                    android:text="@string/occupation"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etStatus" />
+
+                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                    android:id="@+id/etOccupation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:enabled="@{viewModel.stEditProfile ? true : false}"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintTop_toBottomOf="@id/tv7"
+                    app:smsp_enableFloatingLabel="false"
+                    app:smsp_hint="@string/select_occupation"
+                    app:smsp_hintColor="@color/gray"
+                    app:smsp_hintSize="@dimen/_11ssp"
+                    app:smsp_itemColor="@color/black"
+                    app:smsp_itemListColor="@color/black"
+                    app:smsp_paddingLeftRight="@dimen/_8sdp"
+                    app:smsp_selectedItemListColor="@color/orange"
+                    app:smsp_underlineColor="@color/white"
+                    app:smsp_underlineSize="0dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_rext_medium"
+                    android:text="@string/eduction"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etOccupation" />
+
+                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                    android:id="@+id/etEducation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:background="@drawable/shape_unselect"
+                    android:enabled="@{viewModel.stEditProfile ? true : false}"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintBottom_toTopOf="@id/btnSave"
+                    app:layout_constraintTop_toBottomOf="@id/tv8"
+                    app:smsp_enableFloatingLabel="false"
+                    app:smsp_hint="@string/select_education"
+                    app:smsp_hintColor="@color/gray"
+                    app:smsp_hintSize="@dimen/_11ssp"
+                    app:smsp_itemColor="@color/black"
+                    app:smsp_itemListColor="@color/black"
+                    app:smsp_paddingLeftRight="@dimen/_8sdp"
+                    app:smsp_selectedItemListColor="@color/orange"
+                    app:smsp_underlineColor="@color/white"
+                    app:smsp_underlineSize="0dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSave"
+                    style="@style/BUTTON"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginVertical="@dimen/_25sdp"
+                    android:text="Apply"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etEducation" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.fifo.match.ui.activity.home.fragment.homeFragment.HomeFragment" />
+
+        <variable
+            name="viewMdoel"
+            type="com.fifo.match.ui.activity.home.fragment.homeFragment.HomeFragViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_header_gradient"
+        android:fitsSystemWindows="true">
+
+        <RelativeLayout
+            android:id="@+id/rlToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/ic_main" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/filter"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_7sdp"
+                android:layout_toLeftOf="@id/ivNotification"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_filter" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivNotification"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_notification"
+                android:tint="@color/white" />
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/llShape"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlToolbar">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/light_white"
+                app:tabTextAppearance="@style/CustomViewAllTab"
+                app:tabSelectedTextColor="@color/orange"
+                app:tabTextColor="@color/black"
+                app:tabMode="fixed" />
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <com.fifo.match.utils.NonSwipeableViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

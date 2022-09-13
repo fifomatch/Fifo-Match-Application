@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.fifo.match.ui.activity.otp.OtpViewModel" />
+
+        <variable
+            name="activity"
+            type="com.fifo.match.ui.activity.otp.OtpActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/llOne"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:onClick="@{()->activity.onBackPressed()}"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_back" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_text_semibold"
+                android:text="@string/otp_verification"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25ssp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_text_light"
+                    android:text="@string/enter_the_4_digit_otp_sent_to"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_12ssp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:fontFamily="@font/sf_pro_text_light"
+                    android:text="91 123456789"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+
+            </LinearLayout>
+
+
+            <com.chaos.view.PinView
+                android:id="@+id/firstPinView"
+                style="@style/PinWidget.PinView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:cursorVisible="true"
+                android:fontFamily="@font/sf_pro_text_semibold"
+                android:inputType="number"
+                android:padding="@dimen/_6sdp"
+                android:textSize="18sp"
+                app:cursorWidth="1dp"
+                app:hideLineWhenFilled="false"
+                app:itemCount="4"
+                app:itemHeight="60dp"
+                app:itemRadius="@dimen/_8ssp"
+                app:itemSpacing="@dimen/_25sdp"
+                app:itemWidth="60dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                app:lineColor="@color/gray"
+                app:lineWidth="2dp"
+                android:text="@={viewModel.stOtp}"
+                app:viewType="rectangle"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="Expiring in 02:00"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvResendOTP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="@string/resend_otp"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/_12ssp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.87" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consBottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline2">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivNext"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:src="@drawable/ic_round_next"
+                android:onClick="@{()->activity.onNext()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

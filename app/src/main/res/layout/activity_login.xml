@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.fifo.match.ui.activity.login.LoginViewModel" />
+
+        <variable
+            name="activity"
+            type="com.fifo.match.ui.activity.login.LoginActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/llOne"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:onClick="@{()->activity.onBackPressed()}"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_back" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvvvvv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_text_semibold"
+                android:text="@string/enter_your_mobile_nnumber"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_22ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_text_light"
+                android:text="@string/enter_your_mobile_number_to_sign_in"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_12ssp" />
+
+            <LinearLayout
+                android:id="@+id/linearRoot"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/shape_corner"
+                    android:orientation="horizontal">
+
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/ccp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:gravity="center"
+                        app:ccp_defaultNameCode="AU"
+                        app:ccpDialog_showCloseIcon="true"
+                        app:ccp_showArrow="false"
+                        app:ccp_showFlag="false"
+                        app:ccp_showNameCode="false"
+                        app:ccp_showPhoneCode="true"
+                        app:ccp_textSize="@dimen/_12ssp" >
+
+
+                    </com.hbb20.CountryCodePicker>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:src="@drawable/ic_down" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@null"
+                    android:hint="@string/enter_mobile_number"
+                    android:inputType="number"
+                    android:maxLength="14"
+                    android:text="@={viewModel.stMobileNumber}"
+                    android:paddingStart="@dimen/_6sdp"
+                    android:singleLine="true"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/_11ssp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.87" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consBottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline2">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/don_t_have_an_account"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSignup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/sign_up"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toEndOf="@id/tv1"
+                app:layout_constraintTop_toTopOf="@id/tv1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivNext"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:src="@drawable/ic_round_next"
+                android:onClick="@{(view) -> viewModel.onNext(view)}"
+                app:layout_constraintBottom_toBottomOf="@id/tv1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

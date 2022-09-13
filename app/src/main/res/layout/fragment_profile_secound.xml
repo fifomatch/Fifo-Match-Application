@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="androidx.fragment.app.FragmentActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.fifo.match.ui.activity.completeProfile.CompleteProfileViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/sf_pro_text_semibold"
+                    android:text="@string/upload_your_photos"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_text_light"
+                    android:text="@string/it_s_mandatory_to_upload_3_photos"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv1" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/consImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginHorizontal="@dimen/_55sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/shape_dotted_box"
+                    app:layout_constraintTop_toBottomOf="@id/tv2">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivPickImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:padding="@dimen/_25sdp"
+                        android:src="@drawable/ic_select_image" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivImage"
+                        android:scaleType="fitXY"
+                        android:padding="0.5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:fontFamily="@font/sf_pro_text_light"
+                    android:text="@string/upload_profile_picture"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/consImage" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    app:layout_constraintTop_toBottomOf="@id/tv3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="@dimen/_80sdp"
+    android:minHeight="@dimen/_40sdp"
+
+    android:orientation="horizontal">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/mDateContainerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_greay"
+        android:fontFamily="@font/sf_pro_text_regular"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:paddingLeft="15dp"
+        android:paddingTop="4dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="4dp"
+        android:text=""
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10sdp" />
+
+    <LinearLayout
+        android:id="@+id/layoutChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mDateContainerView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginVertical="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:background="@drawable/shape_right_chat"
+        android:elevation="@dimen/_2sdp"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_4sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mDateContainerView"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/_25sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:text="20:51"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgAttechement"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_140sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>

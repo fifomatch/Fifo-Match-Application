@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.fifo.match.ui.activity.welcome.WelcomeViewModel" />
+
+        <variable
+            name="activity"
+            type="com.fifo.match.ui.activity.welcome.WelcomeActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--  android:background="@color/light_orange"-->
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_couple" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:fontFamily="@font/sf_pro_text_semibold"
+            android:text="@string/date_people_who_understand_your_lifestyle_secound"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_30ssp"
+            app:layout_constraintBottom_toTopOf="@id/btnSignIn" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignIn"
+            style="@style/BUTTON"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:text="@string/sign_in"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/btnRegister" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRegister"
+            style="@style/BUTTON"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:text="@string/register"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.fifo.match.ui.activity.match.MatchActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_header_gradient"
+        android:fitsSystemWindows="true">
+
+        <RelativeLayout
+            android:id="@+id/rlToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_55sdp"
+            android:background="@drawable/shape_header_gradient"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:onClick="@{() -> activity.onBackPressed()}"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_back"
+                android:tint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/sf_pro_text_semibold"
+                android:text="@string/match"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp" />
+
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlToolbar">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivMale"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_170sdp"
+                android:layout_marginStart="160dp"
+                android:layout_marginTop="52dp"
+                android:adjustViewBounds="true"
+                android:rotation="15"
+                android:scaleType="centerCrop"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/MatchCornerScreen" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLikeFirst"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:src="@drawable/ic_like_select"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLikeTwo"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:elevation="@dimen/_20sdp"
+                android:src="@drawable/ic_like_select"
+                app:layout_constraintBottom_toTopOf="@id/guideline5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivFemale"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_170sdp"
+                android:layout_marginStart="44dp"
+                android:layout_marginBottom="56dp"
+                android:adjustViewBounds="true"
+                android:rotation="-15"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@id/ivLikeTwo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:shapeAppearanceOverlay="@style/MatchCornerScreen" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="453dp" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_35sdp"
+                android:fontFamily="@font/sf_pro_text_semibold"
+                android:text="It's a match!"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18ssp"
+                app:layout_constraintBottom_toTopOf="@id/btnHello"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline5" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text_light"
+                android:text="@string/start_a_conversation_now_with_each_other"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnHello"
+                style="@style/BUTTON"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:text="@string/say_hello"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/tvHome" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/go_to_home"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

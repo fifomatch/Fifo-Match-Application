@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:attrs="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.fifo.match.ui.activity.view.ViewActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.fifo.match.ui.activity.view.ViewViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_500sdp"
+                app:contentScrim="@color/orange"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_45sdp"
+                        android:elevation="@dimen/_20sdp"
+                        android:onClick="@{() -> activity.onBackPressed()}"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_back"
+                        android:tint="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/vpImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.rd.PageIndicatorView
+                        android:id="@+id/dotsIndicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        app:layout_anchor="@id/llSet"
+                        app:layout_anchorGravity="center_horizontal"
+                        app:piv_animationType="swap"
+                        app:piv_dynamicCount="true"
+                        app:piv_interactiveAnimation="true"
+                        app:piv_selectedColor="@color/white"
+                        app:piv_unselectedColor="@color/dotswhite"
+                        app:piv_viewPager="@id/viewPager"
+                        attrs:piv_padding="12dp"
+                        attrs:piv_radius="8dp"
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/llSet"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_20sdp"
+                        android:background="@color/transperent"
+                        android:orientation="vertical"
+                        app:layout_anchor="@id/clIcons" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clBottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/shape_bottomsheet_round"
+                       >
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_45sdp"
+                            android:fontFamily="@font/sf_pro_text_semibold"
+
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_16ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvAge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_45sdp"
+                            android:fontFamily="@font/sf_pro_text_semibold"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_16ssp"
+                            app:layout_constraintStart_toEndOf="@id/tvName"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            app:layout_constraintTop_toTopOf="@id/tvAge"
+                            app:layout_constraintBottom_toBottomOf="@id/tvAge"
+                            app:layout_constraintStart_toEndOf="@id/tvAge"
+                            android:src="@drawable/tick_green"
+                            android:layout_marginStart="@dimen/_6sdp"
+                            android:id="@+id/ivVerify"
+                            android:visibility="gone"
+                            android:padding="@dimen/_2sdp"
+                            />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivLogo"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tvName" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/swSwitch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            android:layout_marginRight="@dimen/_8sdp"
+                            android:thumb="@drawable/thumb_selector"
+                            app:layout_constraintBottom_toBottomOf="@id/tv2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tv2"
+                            app:track="@drawable/track_selector_for_profile" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:src="@drawable/ic_location"
+                            android:tint="@color/gray"
+                            app:layout_constraintStart_toStartOf="@id/tvName"
+                            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:fontFamily="@font/sf_pro_text_light"
+                            android:textSize="@dimen/_10ssp"
+                            app:layout_constraintTop_toTopOf="@id/iv1"
+                            app:layout_constraintBottom_toBottomOf="@id/iv1"
+                            app:layout_constraintStart_toEndOf="@id/iv1"
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvMils"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:fontFamily="@font/sf_pro_text_light"
+                            android:textSize="@dimen/_10ssp"
+                            app:layout_constraintStart_toEndOf="@id/tvLocation"
+                            app:layout_constraintTop_toTopOf="@id/iv1"
+                            app:layout_constraintBottom_toBottomOf="@id/iv1" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:text="Do not let this user to view my profile"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11ssp"
+                            app:layout_constraintStart_toStartOf="@id/tvName"
+                            app:layout_constraintTop_toBottomOf="@id/iv1" />
+
+                        <View
+                            android:id="@+id/v1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@color/light_gray"
+                            app:layout_constraintTop_toBottomOf="@id/tv2" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:fontFamily="@font/sf_pro_text_light"
+                            android:text="@string/about_me"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/_11ssp"
+                            app:layout_constraintStart_toStartOf="@id/tvName"
+                            app:layout_constraintTop_toBottomOf="@id/v1" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11ssp"
+                            app:layout_constraintTop_toBottomOf="@id/tv3" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvReadMore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:text="@string/read_more"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/_11ssp"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="@id/tvName"
+                            app:layout_constraintTop_toBottomOf="@id/tvDesc" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clIcons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_anchor="@id/clBottom">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivLike"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:elevation="@dimen/_20sdp"
+                            android:src="@drawable/ic_like_select"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:elevation="@dimen/_20sdp"
+                            android:src="@drawable/ic_cancel_white"
+                            android:id="@+id/icCancel"
+                            app:layout_constraintBottom_toBottomOf="@id/ivLike"
+                            app:layout_constraintEnd_toStartOf="@id/ivLike"
+                            app:layout_constraintTop_toTopOf="@id/ivLike" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivSave"
+                            android:layout_width="@dimen/_62sdp"
+                            android:layout_height="@dimen/_62sdp"
+                            android:elevation="@dimen/_20sdp"
+                            android:src="@drawable/ic_save_unselect"
+                            app:layout_constraintBottom_toBottomOf="@id/ivLike"
+                            app:layout_constraintStart_toEndOf="@id/ivLike"
+                            app:layout_constraintTop_toTopOf="@id/ivLike" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:collapseIcon="@drawable/ic_back"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tabBackground="@drawable/tab_selecter"
+                    app:tabIndicatorGravity="top"
+                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget" />
+
+                <com.fifo.match.utils.NonSwipeableViewPager
+                    android:id="@+id/tabViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

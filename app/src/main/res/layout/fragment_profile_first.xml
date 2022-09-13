@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.fifo.match.ui.activity.completeProfile.fragment.ProfileFirstFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.fifo.match.ui.activity.completeProfile.CompleteProfileViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/llMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@drawable/shape_fix"
+                android:enabled="false"
+                android:inputType="text"
+                android:paddingStart="@dimen/_8sdp"
+                android:singleLine="true"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@drawable/shape_unselect"
+                android:hint="@string/enter_email_id"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/_8sdp"
+                android:singleLine="true"
+                android:text="@={viewModel.stEmail}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_rext_medium"
+                android:text="@string/date_of_birth"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etDOB"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:background="@drawable/shape_unselect"
+                android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="Date of birth"
+                android:paddingStart="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp" />
+
+            <!--   <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginHorizontal="@dimen/_15sdp"
+                   android:layout_marginTop="@dimen/_5sdp"
+                   android:orientation="horizontal">
+
+                   <EditText
+                       android:id="@+id/etDate"
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_40sdp"
+                       android:layout_marginEnd="@dimen/_5sdp"
+                       android:layout_weight="1"
+                       android:background="@null"
+                       android:drawableEnd="@drawable/ic_down"
+                       android:hint="@string/date"
+                       android:padding="@dimen/_8sdp"
+                       android:textSize="@dimen/_10ssp" />
+
+                   <EditText
+                       android:id="@+id/etMonth"
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_40sdp"
+                       android:layout_marginStart="@dimen/_5sdp"
+                       android:layout_marginEnd="@dimen/_5sdp"
+                       android:layout_weight="1"
+                       android:background="@null"
+                       android:drawableEnd="@drawable/ic_down"
+                       android:hint="@string/month"
+                       android:padding="@dimen/_8sdp"
+                       android:textSize="@dimen/_10ssp" />
+
+                   <EditText
+                       android:id="@+id/etYear"
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_40sdp"
+                       android:layout_marginStart="@dimen/_5sdp"
+                       android:layout_weight="1"
+                       android:background="@null"
+                       android:drawableEnd="@drawable/ic_down"
+                       android:hint="@string/year"
+                       android:padding="@dimen/_8sdp"
+                       android:textSize="@dimen/_10ssp" />
+
+               </LinearLayout>
+   -->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_rext_medium"
+                android:text="@string/relationship_status"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp" />
+
+            <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                android:id="@+id/etStatus"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:textSize="@dimen/_11ssp"
+                app:smsp_enableFloatingLabel="false"
+                app:smsp_hint="@string/select_relationship_status"
+                app:smsp_hintColor="@color/gray"
+                app:smsp_hintSize="@dimen/_11ssp"
+                app:smsp_itemColor="@color/black"
+                app:smsp_itemListColor="@color/black"
+                app:smsp_paddingLeftRight="@dimen/_8sdp"
+                app:smsp_selectedItemListColor="@color/orange"
+                app:smsp_underlineColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_rext_medium"
+                android:text="@string/occupation"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp" />
+
+            <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                android:id="@+id/etOccupation"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:textSize="@dimen/_11ssp"
+                app:smsp_enableFloatingLabel="false"
+                app:smsp_hint="@string/select_occupation"
+                app:smsp_hintColor="@color/gray"
+                app:smsp_hintSize="@dimen/_11ssp"
+                app:smsp_itemColor="@color/black"
+                app:smsp_itemListColor="@color/black"
+                app:smsp_paddingLeftRight="@dimen/_8sdp"
+                app:smsp_selectedItemListColor="@color/orange"
+                app:smsp_underlineColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_rext_medium"
+                android:text="@string/eduction"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp" />
+
+            <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                android:id="@+id/etEducation"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:textSize="@dimen/_11ssp"
+                app:smsp_enableFloatingLabel="false"
+                app:smsp_hint="@string/select_education"
+                app:smsp_hintColor="@color/gray"
+                app:smsp_hintSize="@dimen/_11ssp"
+                app:smsp_itemColor="@color/black"
+                app:smsp_itemListColor="@color/black"
+                app:smsp_paddingLeftRight="@dimen/_8sdp"
+                app:smsp_selectedItemListColor="@color/orange"
+                app:smsp_underlineColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_rext_medium"
+                android:text="@string/are_you_working_fifo_offshore_or_away_from_home"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnYes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_unselect"
+                    android:fontFamily="@font/sf_pro_text_light"
+                    android:onClick="@{()-> fragment.onFifo(1)}"
+                    android:text="@string/yes"
+                    android:textAllCaps="false"
+                    android:textColor="@color/gray" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_unselect"
+                    android:fontFamily="@font/sf_pro_text_light"
+                    android:onClick="@{()-> fragment.onFifo(2)}"
+                    android:text="@string/no"
+                    android:textAllCaps="false"
+                    android:textColor="@color/gray" />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvswing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sf_pro_rext_medium"
+                android:text="@string/if_yes_to_the_above_question_what_is_your_swing"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                android:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etWrit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:background="@drawable/shape_unselect"
+                android:hint="@string/write_here"
+                android:inputType="text"
+                android:paddingStart="@dimen/_8sdp"
+                android:singleLine="true"
+                android:text="@={viewModel.stSwing}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                android:visibility="visible" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/sf_pro_rext_medium"
+                    android:hint="@string/preferred_age_range"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/hintAgeRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:hint="@string/_18_70"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.jaygoo.widget.RangeSeekBar
+                android:id="@+id/seekBarAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                app:rsb_gravity="center"
+                app:rsb_indicator_background_color="@color/orange"
+                app:rsb_indicator_height="20dp"
+                app:rsb_indicator_margin="5dp"
+                app:rsb_indicator_radius="@dimen/_6sdp"
+                app:rsb_indicator_text_color="@color/orange"
+                app:rsb_indicator_width="50dp"
+                app:rsb_max="70"
+                app:rsb_min="18"
+                app:rsb_min_interval="1"
+                app:rsb_mode="range"
+                app:rsb_progress_color="@color/orange"
+                app:rsb_thumb_drawable="@drawable/seek_thumb"
+                app:rsb_thumb_height="@dimen/_12sdp"
+                app:rsb_thumb_width="@dimen/_12sdp"
+                app:rsb_tick_mark_layout_gravity="bottom"
+                app:rsb_tick_mark_mode="number"
+                app:rsb_tick_mark_text_margin="15dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etDesc"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_85sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:background="@drawable/shape_unselect"
+                android:gravity="top"
+                android:maxLength="22"
+                android:hint="@string/enter_bio"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:text="@={viewModel.stBio}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:text="0/22"
+                android:visibility="gone"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_10ssp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

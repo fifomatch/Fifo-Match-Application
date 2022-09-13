@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_white"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_header_gradient"
+            android:fontFamily="@font/sf_pro_text_semibold"
+            android:gravity="center"
+            android:text="@string/favourites_saved"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/sf_pro_rext_medium"
+            android:text="You have 04 profile saved"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            android:textSize="@dimen/_12ssp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSaved"
+            android:layout_marginBottom="@dimen/_45sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:visibility="gone"
+            android:id="@+id/tvNotFound"
+            android:fontFamily="@font/sf_pro_rext_medium"
+            android:text="No Profile Saved"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</layout>
